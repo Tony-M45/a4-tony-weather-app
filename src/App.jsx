@@ -1,6 +1,8 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import WeatherCard from "./WeatherCard";
+import Loading from "./Loading";
+import ErrorMessage from "./ErrorMessage";
 
 function App() {
   const [city, setCity] = useState("");
@@ -52,9 +54,9 @@ function App() {
 
     <SearchBar city={city} setCity={setCity} onSearch={handleSearch} />
 
-    {loading && <p>Loading...</p>}
+    {loading && <Loading />}
 
-    {error && <p>Error: {error}</p>}
+    {error && <ErrorMessage message={error} />}
 
     {!loading && !error && searched && !weather && (
       <p>No data found.</p>
