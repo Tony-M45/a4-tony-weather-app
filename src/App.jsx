@@ -1,8 +1,17 @@
+import { useState } from "react";
+import SearchBar from "./SearchBar";
+
 function App() {
+  const [city, setCity] = useState("");
+
+  const handleSearch = () => {
+    console.log("Searching for:", city);
+  };
+
   return (
     <div>
       <h1>React Weather App</h1>
-      <p>My app is running.</p>
+      <SearchBar city={city} setCity={setCity} onSearch={handleSearch} />
     </div>
   );
 }
