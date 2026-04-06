@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
+import WeatherCard from "./WeatherCard";
 
 function App() {
   const [city, setCity] = useState("");
@@ -59,15 +60,7 @@ function App() {
       <p>No data found.</p>
     )}
 
-    {weather && weather.main && (
-      <div>
-        <h2>{weather.name}</h2>
-        <p>Temperature: {weather.main.temp} °C</p>
-        <p>Description: {weather.weather[0].description}</p>
-        <p>Humidity: {weather.main.humidity}%</p>
-        <p>Wind Speed: {weather.wind.speed} m/s</p>
-      </div>
-    )}
+    <WeatherCard weather={weather} />
   </div>
   );
 }
